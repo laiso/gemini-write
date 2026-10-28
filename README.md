@@ -1,59 +1,61 @@
 # Gemini Write
 
-文章の執筆・リライト・校正をGeminiに任せる、Codex／Claude Code向けスキルです。Markdownなどのテキストファイルを扱います。原稿のコピーを編集し、結果を確認してから元のファイルへ反映します。
+A skill for Codex and Claude Code that uses Gemini to write, rewrite, and proofread text. It works with text files such as Markdown. It edits a copy of your draft and applies changes to the original file only after checking the results.
 
-## セットアップ
+## Setup
 
-### 1. Antigravity CLIをインストールする
+### 1. Install Antigravity CLI
 
-macOS／Linux：
+macOS / Linux:
 
 ```bash
 curl -fsSL https://antigravity.google/cli/install.sh | bash
 ```
 
-Windows（PowerShell）：
+Windows (PowerShell):
 
 ```powershell
 irm https://antigravity.google/cli/install.ps1 | iex
 ```
 
-インストール後はターミナルを開き直し、次を実行します。
+After installation, reopen your terminal and run:
 
 ```bash
 agy
 ```
 
-画面の案内に従ってログインし、`/exit`で終了します。次のコマンドでモデル一覧が表示されれば準備完了です。
+Follow the on-screen instructions to log in, then exit with `/exit`. Setup is complete when the following command displays the list of models:
 
 ```bash
 agy models
 ```
 
-詳しくは[公式のインストール手順](https://antigravity.google/docs/getting-started#download-and-install)と[ログイン方法](https://antigravity.google/docs/install?tab=cli)を参照してください。
+For details, see the [official installation instructions](https://antigravity.google/docs/getting-started#download-and-install) and [login guide](https://antigravity.google/docs/install?tab=cli).
 
-### 2. このスキルをインストールする
+### 2. Install this skill
 
-この導入コマンドにはNode.js 22.20以降とnpmが必要です。
+This installation command requires Node.js 22.20 or later and npm.
 
 ```bash
 npx skills add laiso/gemini-write --skill gemini-write -g
 ```
 
-表示される案内に従って、利用するエージェントを選択します。
+Follow the displayed prompts to select the agent you want to use.
 
-## 使い方
+## Usage
 
-Codex：
-
-```text
-$gemini-write draft.mdを、内容と口調を保ったまま読みやすくして
-```
-
-Claude Code：
+Codex:
 
 ```text
-/gemini-write draft.mdの誤字と文法だけ直して
+$gemini-write make draft.md more readable while preserving its content and tone
 ```
 
-モデルを指定しない場合は、利用可能な最新のGemini Flash（Medium）を選びます。処理に失敗した場合は反映せず、理由を報告します。
+Claude Code:
+
+```text
+/gemini-write fix only typos and grammar in draft.md
+```
+
+If no model is specified, it selects the latest available Gemini Flash (Medium). If processing fails, changes are not applied and the reason is reported.
+
+This document was created with Gemini Write.

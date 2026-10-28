@@ -10,8 +10,9 @@ Use an authenticated `agy` and the host agent's existing file/process tools.
 ## Prepare
 
 1. Locate `agy` (`command -v agy` on POSIX; `Get-Command agy` on PowerShell). If absent, report it and offer setup or direct editing; do not install or change executors silently. A direct-edit fallback requires agreement when Gemini or context isolation was requested.
-2. Run `agy models` once per task. Honor the user's model/reasoning choice; otherwise choose the newest numerically versioned Gemini Flash with Medium reasoning. Announce its exact returned name/ID; ask if unavailable or ambiguous. A model-list request alone must not generate prose.
-3. Follow [operations.md](references/operations.md) to validate the destination and make a private working copy and backup without reading the manuscript into chat. Keep the original destination out of the delegated prompt. Include the user's instructions, applicable project rules, and absolute source paths.
+2. Before any `agy` call, including `models`, check the host execution policy. AGY needs user-state writes, localhost binding, and network access. In a known restricted Codex sandbox, request scoped host approval up front with `sandbox_permissions="require_escalated"` and a concrete justification. If unavailable or denied, report the host block and stop.
+3. Run `agy models` once per task. Honor the user's model/reasoning choice; otherwise choose the newest numerically versioned Gemini Flash with Medium reasoning. Announce its exact returned name/ID; ask if unavailable or ambiguous. A model-list request alone must not generate prose.
+4. Follow [operations.md](references/operations.md) to validate the destination and make a private working copy and backup without reading the manuscript into chat. Keep the original destination out of the delegated prompt. Include the user's instructions, applicable project rules, and absolute source paths.
 
 ## Delegate
 

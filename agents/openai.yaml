@@ -1,0 +1,3 @@
+interface:
+  display_name: "Gemini Write"
+  short_description: "Delegate prose to Gemini with staged, verified edits"
